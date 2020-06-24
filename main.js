@@ -3,8 +3,8 @@ var productButton = document.getElementById('product__button');
 var contactButton = document.getElementById('contact__button');
 var helpButton = document.getElementById('help__button');
 var loginButton = document.getElementById('login__button');
-var registerButton = document.getElementById('register__button');
-var buttonRegister = document.getElementById('button__signon');
+// var registerButton = document.getElementById('register__button');
+var buttonRegister = document.getElementById('button__signOn');
 var buttonCancel = document.getElementById('button__cancel');
 
 var homeMain = document.getElementById('div_1');
@@ -41,9 +41,9 @@ helpButton.addEventListener('click', function () {
 loginButton.addEventListener('click', function () {
     toogle(loginMain);
 });
-registerButton.addEventListener('click', function () {
-    toogle(loginMain);
-});
+// registerButton.addEventListener('click', function () {
+//     toogle(loginMain);
+// });
 
 function toogle(element) {
     this.homeMain.style.display = "none";
@@ -60,6 +60,6 @@ function toogleSignOn() {
 }
 
 function toogleSignIn() {
-    this.signInBox.style.display = "block";
+    this.signInBox.style.display = "flex";
     this.signOnBox.style.display = "none";
 }

@@ -147,29 +147,82 @@ main .help {
 
 main .login {
     display: none;
-    /*border-radius: 5px;*/
-    /*animation-name: zoomIn;*/
-    /*animation-duration: 1s;*/
-    /*animation-fill-mode: both;*/
 }
 
 main .login .login__signin {
-    display: block;
+    display: flex;
+    justify-content: space-around;
     color: black;
     width: 60%;
-    margin: 0 auto;
+    margin: 140px auto 0;
+}
+
+main .login .login__signin .login__signin--form {
+    padding: 20px;
+    border:1px solid rgba(52, 0, 104, 0.31);
+    border-radius: 25px;
+    box-shadow: 3px 3px 4px 2px rgba(21, 21, 21, 0.15);
+    font-weight: 400;
+}
+
+main .login .login__signin .login__signin--form input {
+    border:1px solid rgba(21, 21, 21, 0.57);
+    border-radius: 10px;
+    margin:2px 0px;
+    text-align: center;
+}
+
+main .login .login__signin input:focus{
+    outline: none;
+}
+
+#button__signIn {
+    margin:10px;
+    justify-self: center;
+    box-shadow: 0px 2px 5px -2px rgba(21, 21, 21, 0.30);
+    background: linear-gradient(to bottom, #e9f1f7 10%, rgb(232, 242, 248) 100%);
+    border-radius: 25px;
+    border: 1px solid rgb(191, 199, 206);
+    cursor: pointer;
+    color: #151515;
+    padding: 6px 20px;
+    text-decoration: none;
+    text-shadow: 0px 1px 2px rgba(21, 21, 21, 0.25);
+}
+
+#button__signOn {
+    justify-self: center;
+    box-shadow: 0px 2px 5px -2px rgba(21, 21, 21, 0.30);
+    background: linear-gradient(to bottom, #e9f1f7 10%, rgb(232, 242, 248) 100%);
+    border-radius: 25px;
+    border: 1px solid rgb(191, 199, 206);
+    cursor: pointer;
+    color: #151515;
+    padding: 6px 20px;
+    text-decoration: none;
+    text-shadow: 0px 1px 2px rgba(21, 21, 21, 0.25);
+}
+
+#button__signIn:hover {
+    background: linear-gradient(to bottom, #e9f1f7 10%, rgb(232, 242, 248) 100%);
+}
+
+#button__signIn:active {
+    position: relative;
+    top:1px;
+    outline: none;
+}
+
+#button__signIn:focus {
+    outline: none;
+}
+
+#button__signOn:focus {
+    outline: none;
 }
 
 main .login .login__signon {
     display: none;
-}
-
-main .login .login__signon form {
-    display: block;
-}
-
-main .login .login__signon form input {
-    display: block;
 }
 
 main .login .login__panel {

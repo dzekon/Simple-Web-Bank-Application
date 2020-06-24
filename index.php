@@ -84,17 +84,29 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
         }
         ?>
             <section class="login__signin" id="signin">
-                Zaloguj się
+                <section class="login__signin--information">
+                    <img src="assets/images/12.svg" alt="test" width="400" style="margin-top: 10px">
+                </section>
+                <section class="login__signin--form">
+                    <center>
+                    <img src="assets/images/login.svg" alt="login_icon" width="128" style="margin:0px 0px 15px 15px">
+                    </center>
                 <form method="POST">
-                    <label>Login
-                        <input type="text" name="login" required>
-                    </label><br>
-                    <label>Hasło
+                    <center>
+                    <label for="login">login
+                        </label><br>
+                        <input type="text" name="login" required><br>
+                    <label for="pwd">password
+                        </label><br>
                         <input type="password" name="pwd" required>
                     </label><br>
-                    <button>Logowanie</button>
+                     <button id="button__signIn">zaloguj się</button>
+                    </center>
                 </form>
-                <button id="button__signon">Zarejestruj się</button>
+                    <center>
+                    <button id="button__signOn">zarejestruj się</button>
+                    </center>
+                </section>
             </section>
             <section class="login__signon" id="signon">
                 Zarejestruj nowe konto:
