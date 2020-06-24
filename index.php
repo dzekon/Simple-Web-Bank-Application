@@ -62,7 +62,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
         if (isset($_GET['bad'])) {
             echo '<div class="home" id="div_1" style="display: none;">';
         } else {
-            echo '<div class="home" id="div_1" style="display: block;">';
+            echo '<div class="home" id="div_1" style="display: none;">';
         }
         ?>
 <!--        <div class="home" id="div_1">-->
@@ -87,7 +87,7 @@ if (isset($_POST['login']) && isset($_POST['pwd'])) {
         if (isset($_GET['bad'])) {
             echo '<div class="login" id="div_5" style="display: block;">';
         } else {
-            echo '<div class="login" id="div_5" style="display: none;">';
+            echo '<div class="login" id="div_5" style="display: block;">';
         }
         ?>
 <!--        <div class="login" id="div_5">-->

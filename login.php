@@ -1,9 +1,13 @@
 <?php
+require_once('user.php');
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
     header('location:index.php');
     exit();
+} else {
+    $user = new User($_SESSION['user_id']);
+    echo $user->ShowBalanceAccount();
 }
 ?>
 <!DOCTYPE html>
