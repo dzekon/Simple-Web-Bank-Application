@@ -1,6 +1,5 @@
 <?php
 require_once('connection.php');
-require_once ('user_cards.php');
 
 class User
 {
@@ -19,32 +18,92 @@ class User
     private $mail;
     private $telephoneNumber;
     private $status;
-    private $bankAccounts;
-    private $card;
+    private $bankAccount;
+    public $cards;
 
     public function __construct($user_id)
     {
         $this->db = new Database('localhost', 'root', '', 'bank', '3306');
         $this->id = $user_id;
-        $this->SetPersonalDate();
-        $this->SetBankAccounts();
+        $this->setPersonalDate();
+        $this->setBankAccount();
+        $this->setCards();
     }
 
-    public function ShowBalanceAccount()
+    public function getSurname()
     {
-        if ($this->bankAccounts == null) {
+        return $this->surname;
+    }
+
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    public function getPesel()
+    {
+        return $this->pesel;
+    }
+
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    public function getHouseNumber()
+    {
+        return $this->houseNumber;
+    }
+
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    public function getTown()
+    {
+        return $this->town;
+    }
+
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    public function getTelephoneNumber()
+    {
+        return $this->telephoneNumber;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function getBankAccountNumber()
+    {
+        if ($this->bankAccount == null) {
             return false;
         } else {
-            return $this->bankAccounts['balance'];
+            return $this->bankAccount['account_number'];
         }
     }
 
-    public function ShowNumberAccount()
+    public function getBankAccountBalance()
     {
-        return $this->bankAccounts['account_number'];
+        if ($this->bankAccount == null) {
+            return false;
+        } else {
+            return $this->bankAccount['balance'];
+        }
     }
 
-    private function SetPersonalDate()
+    private function setPersonalDate()
     {
         $data = $this->db->single("SELECT * FROM user_bank WHERE id = '$this->id'");
         $this->login = $data['login'];
@@ -62,19 +121,23 @@ class User
         $this->status = $data['status'];
     }
 
-    private function SetBankAccounts()
+    private function setBankAccount()
     {
-        $bankAccounts = $this->db->single("SELECT * FROM bank_account where id_user = '$this->id'");
-        if ($bankAccounts == null) {
+        $bankAccount = $this->db->single("SELECT * FROM bank_account where id_user = '$this->id'");
+        if ($bankAccount == null) {
             return false;
         } else {
-            $this->bankAccounts = $bankAccounts;
+            $this->bankAccount = $bankAccount;
         }
     }
 
-    private function SetCard()
+    private function setCards()
     {
-        $card = $this->db->single("SELECT * FROM card where id_user = '$this->id'");
-        $this->card = $card;
+        $cards = $this->db->multiRow("SELECT * FROM card where id_user = '$this->id'");
+        if ($cards == null) {
+            return false;
+        } else {
+            $this->cards = $cards;
+        }
     }
 }
