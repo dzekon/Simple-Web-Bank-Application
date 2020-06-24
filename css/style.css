@@ -1,0 +1,313 @@
+* {
+    font-family: "Roboto Light", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: black;
+}
+
+body {
+    margin: 0;
+    animation: color-change-2x 3s linear infinite alternate both;
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    color: black;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    width: 20%;
+}
+
+header nav {
+    display: flex;
+}
+
+header nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header nav ul li {
+    display: inline-flex;
+    list-style: none;
+    margin: 0 25px;
+}
+
+header nav ul .nav__header {
+    display: none;
+}
+
+header nav ul li button {
+    border: none;
+    background: none;
+}
+
+header nav ul li button:hover {
+    color: red;
+}
+
+header nav ul li button:focus {
+    outline: none;
+}
+
+header nav ul li:nth-child(6) button {
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+    background-color: #f9f9f9;
+    border-radius: 25px;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+    color: #666666;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+}
+
+header nav ul li:nth-child(6) button:hover {
+    background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+    background-color: #e9e9e9;
+}
+
+header nav ul li:nth-child(6) button:active {
+    position: relative;
+    top: 1px;
+}
+
+main {
+    display: block;
+}
+
+main .home {
+    display: none;
+    min-height: 500px;
+    text-align: center;
+    font-size: 1.2vw;
+    font-weight: bold;
+    line-height: 30px;
+    animation-name: zoomInLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    background-size: 600px;
+}
+
+main .home h1 {
+    font-size: 2vw;
+}
+
+main .home h2 {
+    font-size: 1.8vw;
+    margin: 2px;
+}
+
+main .home h3 {
+    font-size: 1.6vw;
+    margin: 0px;
+}
+
+main .home ul {
+    margin: 20px;
+    padding: 0;
+}
+
+main .home ul li {
+    list-style: none;
+}
+
+.button__main--middle {
+    border: 1px solid #bf3f4c;
+    background: #DA4453;
+    border-radius: 20px;
+    /*padding: 5px 25px;*/
+    padding: 0.5vw 1vw;
+    font-size: 1.2rem;
+}
+
+main .product {
+    display: none;
+}
+
+main .contact {
+    display: none;
+}
+
+main .help {
+    display: none;
+}
+
+main .login {
+    display: none;
+    border-radius: 5px;
+    background: #b37777;
+    height: 550px;
+    width: 700px;
+    margin:40px auto;
+    animation-name: zoomIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+main .login .login__signin {
+    display: block;
+    color:black;
+    width: 60%;
+    margin:0 auto;
+}
+
+main .login .login__signon {
+    display: none;
+}
+
+main .login .login__signon form {
+    display: block;
+}
+
+main .login .login__signon form input {
+    display: block;
+}
+
+footer {
+    display: flex;
+    position: relative;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+}
+
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+        transform: scale3d(.3, .3, .3);
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomInLeft {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);
+        transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    }
+    25% {
+        opacity: 1;
+        -webkit-transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);
+        transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);
+        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+}
+
+@keyframes color-change-2x {
+    0% {
+        background: #7b5293;
+    }
+    100% {
+        background: rgb(110, 73, 132);
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        height: 280px;
+    }
+
+    header .logo {
+        width: 200px;
+        margin-top: 25px;
+    }
+
+    header nav {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    header nav ul {
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+        margin: 5px auto;
+    }
+
+    header nav ul .nav__header {
+        display: flex;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    main {
+        margin: 25px 0px 0px;
+    }
+
+    main .home {
+        text-align: center;
+        font-size: 2.2vw;
+        font-weight: bold;
+        line-height: 30px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    main .home h1 {
+        font-size: 3vw;
+    }
+
+    main .home h2 {
+        font-size: 2.8vw;
+        margin: 2px;
+    }
+
+    main .home h3 {
+        font-size: 2.6vw;
+        margin: 0px;
+    }
+}
+
+@media (max-width: 600px) {
+    main .home {
+        text-align: center;
+        font-size: 5vw;
+        font-weight: bold;
+        line-height: 50px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    main .home h1 {
+        font-size: 7vw;
+    }
+
+    main .home h2 {
+        font-size: 6.8vw;
+        margin: 2px;
+    }
+
+    main .home h3 {
+        font-size: 6.6vw;
+        margin: 0px;
+    }
+}
