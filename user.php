@@ -19,6 +19,9 @@ class User
     private $telephoneNumber;
     private $status;
     private $bankAccount;
+
+    public $logSendMoney;
+    public $logReceiveMoney;
     public $cards;
 
     public function __construct($user_id)
@@ -28,6 +31,11 @@ class User
         $this->setPersonalDate();
         $this->setBankAccount();
         $this->setCards();
+    }
+
+    public function getID()
+    {
+        return $this->id;
     }
 
     public function getSurname()
@@ -103,6 +111,12 @@ class User
         }
     }
 
+    public function setLogs()
+    {
+        $this->setLogSendMoney();
+        $this->setLogReceiveMoney();
+    }
+
     private function setPersonalDate()
     {
         $data = $this->db->single("SELECT * FROM user_bank WHERE id = '$this->id'");
@@ -138,6 +152,28 @@ class User
             return false;
         } else {
             $this->cards = $cards;
+        }
+    }
+
+    private function setLogSendMoney()
+    {
+        $account_number = $this->bankAccount['account_number'];
+        $log = $this->db->multiRow("SELECT * FROM account_transfer_log where number_account_send = '$account_number'");
+        if ($log == null) {
+            return false;
+        } else {
+            $this->logSendMoney = $log;
+        }
+    }
+
+    private function setLogReceiveMoney()
+    {
+        $account_number = $this->bankAccount['account_number'];
+        $log = $this->db->multiRow("SELECT * FROM account_transfer_log where number_account_receive = '$account_number'");
+        if ($log == null) {
+            return false;
+        } else {
+            $this->logReceiveMoney = $log;
         }
     }
 }
