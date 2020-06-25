@@ -10,6 +10,10 @@ if (!isset($_SESSION['user_id'])) {
 } else {
     $user = new User($_SESSION['user_id']);
 }
+
+if (isset($_POST['numberAccountReceiver'])) {
+    echo 'jest wysyłane siano';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,8 +68,10 @@ if (!isset($_SESSION['user_id'])) {
     if (isset($_GET['operation'])) {
         switch ($_GET['operation']) {
             case 'showHistory':
-                echo '<section class="login__panel--history">';
                 $user->setLogs();
+                echo '<section class="login__panel--history">';
+                echo '<section class="login__panel--history--sendMoney">';
+                echo '<span>Historia przelewów wysłanych</span><br>';
                 if ($user->logSendMoney == null) {
                     echo 'jest null';
                 } else {
@@ -84,9 +90,43 @@ if (!isset($_SESSION['user_id'])) {
                     }
                 }
                 echo '</section>';
+                echo '<section class="login__panel--history--receiveMoney">';
+                echo '<span>Historia przelewów wysłanych</span><br>';
+                if ($user->logReceiveMoney == null) {
+                    echo 'jest null';
+                } else {
+                    $id_log = 1;
+                    foreach ($user->logReceiveMoney as $log) {
+                        echo $id_log;
+                        echo '<br>';
+                        echo $log['number_account_send'];
+                        echo '<br>';
+                        echo $log['number_account_receive'];
+                        echo '<br>';
+                        echo $log['date'];
+                        echo '<br>';
+                        echo $log['amount'];
+                        $id_log++;
+                    }
+                }
+                echo '</section>';
+                echo '</section>';
                 break;
             case 'transferMoney':
-                echo '<section class="login__panel--history">To sa pieniadze</section>';
+                echo '<section class="login__panel--history">'; ?>
+                <form action="login.php?operation=transferMoney" method="POST">
+                    <label for="surnameReceiver">Imię</label>
+                    <input type="text" name="surnameReceiver" required>
+                    <label for="lastnameReceiver">Nazwisko</label>
+                    <input type="text" name="lastnameReceiver" required>
+                    <label for="number_account">Numer konta</label>
+                    <input type="text" name="numberAccountReceiver" required>
+                    <label for="amountMoney">Kwota</label>
+                    <input type="number" name="amountMoney" required>
+                    <button>Wyślij</button>
+                </form>
+    <?php
+            echo '</section>';
                 break;
             case 'logout':
                 session_destroy();
