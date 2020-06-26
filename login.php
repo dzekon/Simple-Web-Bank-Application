@@ -10,10 +10,6 @@ if (!isset($_SESSION['user_id'])) {
 } else {
     $user = new User($_SESSION['user_id']);
 }
-
-if (isset($_POST['numberAccountReceiver'])) {
-    echo 'jest wysyłane siano';
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,28 +113,53 @@ if (isset($_POST['numberAccountReceiver'])) {
                         </section>
                         <?php
                         break;
-                    case 'transferMoney':
-                        echo '<section class="login__panel--history">'; ?>
-                        <form action="login.php?operation=transferMoney" method="POST">
-                            <label for="surnameReceiver">Imię</label>
-                            <input type="text" name="surnameReceiver" required>
-                            <label for="lastnameReceiver">Nazwisko</label>
-                            <input type="text" name="lastnameReceiver" required>
-                            <label for="number_account">Numer konta</label>
-                            <input type="text" name="numberAccountReceiver" required>
-                            <label for="amountMoney">Kwota</label>
-                            <input type="number" name="amountMoney" required>
-                            <button>Wyślij</button>
-                        </form>
-                        <a href="login.php">
-                            <button>Wróć do panelu</button>
-                        </a>
+                    case 'transferMoney': ?>
+                        <section class="login__panel--transferMoney">
                         <?php
-                        echo '</section>';
+                        if (!isset($_POST['surnameReceiver'])) { ?>
+                            <form action="login.php?operation=transferMoney" method="POST">
+                                <label for="surnameReceiver">Imię</label>
+                                <input type="text" name="surnameReceiver" required>
+                                <label for="lastnameReceiver">Nazwisko</label>
+                                <input type="text" name="lastnameReceiver" required>
+                                <label for="number_account">Numer konta</label>
+                                <input type="text" name="numberAccountReceiver" required>
+                                <label for="amountMoney">Kwota</label>
+                                <input type="number" name="amountMoney" required>
+                                <button>Wyślij</button>
+                            </form>
+                            <a href="login.php">
+                                <button>Wróć do panelu</button>
+                            </a>
+                            </section>
+                            <?php
+                        } else {
+                            $dateReceiver = $_POST;
+                            $numberAccount = $dateReceiver['numberAccountReceiver'];
+                            $userMoney = $user->getBankAccountBalance();
+                            $userAccount = $user->getBankAccountNumber();
+                            $amountMoney = $dateReceiver['amountMoney'];
+                            if ($db->single("SELECT * FROM bank_account where account_number = '$numberAccount'")) {
+                                if ($dateReceiver['amountMoney'] > $userMoney) {
+                                    echo 'Masz za mało pieniędzy, aby wykonać przelew!';
+                                } else {
+                                    $db->execute("UPDATE bank_account SET balance = balance - $amountMoney WHERE account_number = '$userAccount'");
+                                    $db->execute("UPDATE bank_account SET balance = balance + $amountMoney WHERE account_number = '$numberAccount'");
+                                    header('location:login.php?operation=transferMoney');
+                                    exit();
+                                }
+                            } else {
+                                echo 'nie ma takiego konta';
+                            }
+                            ?>
+                            <a href="login.php?operation=transferMoney">
+                                <button>Wróć</button>
+                            </a>
+                        <?php }
                         break;
-                    case 'applicationCard':
+                    case 'licationCard':
                         ?>
-                        <section class="login__panel--applicationCard">
+                        <section class="login__panel--aplicationCard">
                         <?php
                         if (!isset($_POST['cardType'])) {
                             if (sizeof($user->cards) == 2) {
@@ -155,7 +176,7 @@ if (isset($_POST['numberAccountReceiver'])) {
                                 } else {
                                     ?>
                                     Możesz posiadać maksymalnie 2 karty!
-                                    <form action="login.php?operation=applicationCard" method="POST">
+                                    <form action="login.php?operation=aplicationCard" method="POST">
                                         Wybierz typ karty:
                                         <input type="radio" name="cardType" value="credit">
                                         <label for="creditCard">Karta Kredytowa</label>
@@ -163,6 +184,9 @@ if (isset($_POST['numberAccountReceiver'])) {
                                         <label for="debitCard">Karta Debetowa</label>
                                         <button>Wyślij wniosek</button>
                                     </form>
+                                    <a href="login.php">
+                                        <button>Wróć</button>
+                                    </a>
                                     </section>
                                     <?php
                                 }
@@ -171,9 +195,14 @@ if (isset($_POST['numberAccountReceiver'])) {
                             if (isset($_POST['cardType'])) {
                                 $user->setAplicationCard();
                                 $aplication = $user->getAplicationCard();
-                                if (in_array($_POST['cardType'], array_column($aplication, 'type'))) {
+                                if ($aplication != null) {
+                                    $isExistAplication = in_array($_POST['cardType'], array_column($aplication, 'type'));
+                                } else {
+                                    $isExistAplication = false;
+                                }
+                                if ($isExistAplication) {
                                     echo 'Wniosek o ten typ karty został już złożony'; ?>
-                                    <a href="login.php?operation=applicationCard">
+                                    <a href="login.php?operation=aplicationCard">
                                         <button>Wróć</button>
                                     </a>
                                     <?php
@@ -184,7 +213,7 @@ if (isset($_POST['numberAccountReceiver'])) {
                                     $db->execute("INSERT INTO aplication_card (type, id_user, status) VALUES ('$type', '$idUser', '$status');");
                                     ?>
                                     Wniosek został wysłany!
-                                    <a href="login.php?operation=applicationCard">
+                                    <a href="login.php?operation=aplicationCard">
                                         <button>Wróć</button>
                                     </a>
                                     <?php
@@ -212,7 +241,7 @@ if (isset($_POST['numberAccountReceiver'])) {
                         <a href="login.php?operation=transferMoney">
                             <button class="button__operation">Prześlij pieniądze</button>
                             <a/>
-                            <a href="login.php?operation=applicationCard">
+                            <a href="login.php?operation=aplicationCard">
                                 <button class="button__operation">Złóż wniosek o karte</button>
                             </a>
                             <a href="login.php?operation=logout">
