@@ -19,8 +19,8 @@ class User
     private $telephoneNumber;
     private $status;
     private $bankAccount;
-    private $aplicationCard;
-    private $aplicationAccount;
+    private $applicationCard;
+    private $applicationAccount;
 
     public $logSendMoney;
     public $logReceiveMoney;
@@ -119,12 +119,12 @@ class User
         $this->setLogReceiveMoney();
     }
 
-    public function getAplicationCard()
+    public function getApplicationCard()
     {
-        if ($this->aplicationCard == null) {
+        if ($this->applicationCard == null) {
             return false;
         } else {
-            return $this->aplicationCard;
+            return $this->applicationCard;
         }
     }
 
@@ -188,13 +188,13 @@ class User
         }
     }
 
-    public function setAplicationCard()
+    public function setApplicationCard()
     {
-        $application = $this->db->multiRow("SELECT * FROM aplication_card where id_user = '$this->id'");
+        $application = $this->db->multiRow("SELECT * FROM application_card where id_user = '$this->id'");
         if ($application == null) {
             return false;
         } else {
-            $this->aplicationCard = $application;
+            $this->applicationCard = $application;
         }
     }
 }
