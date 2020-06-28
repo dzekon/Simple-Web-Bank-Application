@@ -113,18 +113,49 @@ class User
         }
     }
 
-    public function setLogs()
-    {
-        $this->setLogSendMoney();
-        $this->setLogReceiveMoney();
-    }
-
     public function getApplicationCard()
     {
         if ($this->applicationCard == null) {
             return false;
         } else {
             return $this->applicationCard;
+        }
+    }
+
+    public function setLogs(){
+        $this->setLogSendMoney();
+        $this->setLogReceiveMoney();
+    }
+
+    private function setLogSendMoney()
+    {
+        $account_number = $this->bankAccount['account_number'];
+        $log = $this->db->multiRow("SELECT * FROM account_transfer_log where number_account_send = '$account_number'");
+        if ($log == null) {
+            return false;
+        } else {
+            $this->logSendMoney = $log;
+        }
+    }
+
+    private function setLogReceiveMoney()
+    {
+        $account_number = $this->bankAccount['account_number'];
+        $log = $this->db->multiRow("SELECT * FROM account_transfer_log where number_account_receive = '$account_number'");
+        if ($log == null) {
+            return false;
+        } else {
+            $this->logReceiveMoney = $log;
+        }
+    }
+
+    public function setApplicationCard()
+    {
+        $application = $this->db->multiRow("SELECT * FROM application_card where id_user = '$this->id'");
+        if ($application == null) {
+            return false;
+        } else {
+            $this->applicationCard = $application;
         }
     }
 
@@ -163,38 +194,6 @@ class User
             return false;
         } else {
             $this->cards = $cards;
-        }
-    }
-
-    private function setLogSendMoney()
-    {
-        $account_number = $this->bankAccount['account_number'];
-        $log = $this->db->multiRow("SELECT * FROM account_transfer_log where number_account_send = '$account_number'");
-        if ($log == null) {
-            return false;
-        } else {
-            $this->logSendMoney = $log;
-        }
-    }
-
-    private function setLogReceiveMoney()
-    {
-        $account_number = $this->bankAccount['account_number'];
-        $log = $this->db->multiRow("SELECT * FROM account_transfer_log where number_account_receive = '$account_number'");
-        if ($log == null) {
-            return false;
-        } else {
-            $this->logReceiveMoney = $log;
-        }
-    }
-
-    public function setApplicationCard()
-    {
-        $application = $this->db->multiRow("SELECT * FROM application_card where id_user = '$this->id'");
-        if ($application == null) {
-            return false;
-        } else {
-            $this->applicationCard = $application;
         }
     }
 }

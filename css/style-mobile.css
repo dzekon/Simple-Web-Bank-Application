@@ -1,0 +1,236 @@
+@media only screen and (max-width: 900px) {
+    .header {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .header__logo {
+        display: block;
+        width: auto;
+        text-align: center;
+    }
+
+    .header__nav {
+        display: block;
+    }
+
+    .header__list {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .header__item {
+        display: inline-flex;
+        list-style: none;
+        margin: 0;
+    }
+
+    .header__item--mobile {
+        display: none;
+    }
+
+    .login-panel {
+        width: 75%;
+    }
+
+    .applicationCard-panel {
+        width: 80%;
+        height: auto;
+    }
+
+    .transfer-panel {
+        width: 80%;
+        height: auto;
+    }
+
+}
+
+@media only screen and (max-width: 700px) {
+    .header {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+
+    .header__nav {
+    }
+
+    .header__logo {
+        width: auto;
+        margin:10px;
+    }
+
+    .header__list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+    }
+
+    .header__item {
+        display: block;
+        text-align: center;
+        margin:0;
+        width: 100%;
+        height: 35px;
+    }
+
+    .header__button {
+        text-transform: uppercase;
+    }
+
+    .header__item--mobile {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .main {
+        display: block;
+        height: auto;
+    }
+
+    .home {
+        height: auto;
+        min-height: 0;
+    }
+
+    .home-container {
+        margin-top: 30px;
+    }
+
+    .home-container__header {
+        font-size: 1.6rem!important;
+        letter-spacing: 5px;
+    }
+
+    .home-container__information {
+        font-size: 1.2rem!important;
+    }
+
+    .home-benefits {
+        display: block;
+    }
+
+    .home-benefits__item {
+        display: block;
+    }
+
+    .home-benefits__advantage {
+        font-size: 1.1rem!important;
+    }
+
+    .product {
+    }
+
+    .product-container {
+        height: auto;
+        min-height: 0;
+        margin:0;
+        width: 100%;
+    }
+
+    .product-header {
+        margin:10px auto;
+    }
+
+    .product-account {
+        height: auto;
+    }
+
+    .product-account__image {
+        margin:0 auto;
+        width: 240px;
+    }
+
+    .product-account__describe {
+        width: 80%;
+        margin:0 auto;
+    }
+
+    .product-card {
+        flex-wrap: wrap;
+        flex-grow: 5;
+        height: auto;
+    }
+
+    .product-card__container {
+        width: 80%;
+    }
+
+    .contact-container {
+        width: 100%;
+    }
+
+    .contact-container__methods {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .signIn__container {
+        flex-wrap: wrap-reverse;
+        margin:30px auto 0;
+    }
+
+    .signIn__article {
+        display: none;
+    }
+
+    .signOn__container {
+        width: 80%;
+    }
+
+    .login-panel {
+        display: flex;
+        flex-wrap: wrap;
+        grid-template-columns: none;
+        justify-content: center;
+        width: 80%;
+        height: auto;
+    }
+
+    .panel-information {
+        display: block;
+    }
+
+    .applicationCard-panel {
+        width: 80%;
+        height: auto;
+    }
+
+    .footer {
+        margin-top: 20px;
+        display: block;
+        height: auto;
+        position: static;
+    }
+
+    .footer__logo {
+        display: block;
+        text-align: center;
+        width: auto;
+        font-size: 1.1rem!important;
+    }
+
+    .footer__information {
+        display: block;
+        font-size: 0.8rem!important;
+    }
+
+    .footer__rights {
+        font-size: 0.8rem!important;
+    }
+
+    .footer__link {
+        font-size: 0.8rem!important;
+    }
+}

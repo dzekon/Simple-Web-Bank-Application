@@ -7,9 +7,9 @@
 
 body {
     margin: 0;
-    height: 100vh;
     position: relative;
     background: #e9f1f7;
+    height: 95vh;
 }
 
 .header {
@@ -22,8 +22,11 @@ body {
 
 .header__logo {
     display: flex;
+    font-family: 'Righteous', cursive;
     justify-content: center;
     width: 20%;
+    font-size: 1.6rem;
+    letter-spacing: 5px;
 }
 
 .header__nav {
@@ -91,22 +94,216 @@ body {
 .home {
     display: none;
     min-height: 500px;
+}
+
+.home-container {
     text-align: center;
-    font-size: 1.2vw;
-    font-weight: bold;
-    line-height: 30px;
-    animation-name: zoomInLeft;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-    background-size: 600px;
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+@keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+
+.home-container__header {
+    font-family: 'Righteous', cursive;
+    font-weight: normal;
+    font-size: 3.6rem;
+    letter-spacing: 5px;
+    margin: 20px 0px 10px;
+}
+
+.home-container__information {
+    font-size: 1.6rem;
+    margin: 0 0 25px;
+}
+
+.home-benefits {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.home-benefits__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 15px 0;
+    height: 170px;
+}
+
+.home-benefits__advantage {
+    margin: 0 15px 0;
+    font-size: 1.2rem;
 }
 
 .product {
     display: none;
 }
 
+.product-container {
+    width: 50%;
+    margin: 50px auto 50px;
+    text-align: center;
+}
+
+.product-nav {
+    width: 40%;
+    margin: 0 auto;
+}
+
+.product-nav__list {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+.product-nav__item {
+    margin: 0 15px 0;
+}
+
+.product-nav__button {
+
+}
+
+.product-header {
+    font-size: 1.6rem;
+    margin: 10px 0;
+}
+
+.product-card {
+    display: flex;
+    justify-content: space-evenly;
+    height: 350px;
+    -webkit-animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+
+.product-card__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card__container {
+    display: flex;
+    align-items: center;
+    width: 45%;
+}
+
+.product-card__header {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.product-card__information {
+}
+
+.product-card__list {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.product-card__item {
+    margin: 0 auto;
+    font-size: 1rem;
+    list-style: none;
+    font-weight: 500;
+}
+
+.product--visa {
+    display: none;
+}
+
+.product--mastercard {
+    display: none;
+}
+
+.product-account {
+    height: 350px;
+    -webkit-animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.product-account__container {
+}
+
+.product-account__describe {
+}
+
+.product-account__header {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.product-account__image {
+
+}
+
 .contact {
     display: none;
+}
+
+.contact-container {
+    width: 40%;
+    text-align: center;
+    margin: 50px auto 0;
+    -webkit-animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+    animation: text-focus-in 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.contact-container__methods {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contact-container__header {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+.contact-container__info {
+    font-size: 1.2rem;
+}
+
+.contact-work__day {
+
+}
+
+.contact-ways__header {
+    margin: 5px 0;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .help {
@@ -118,11 +315,21 @@ body {
 }
 
 .signIn__container {
-    display: none;
+    display: flex;
     justify-content: space-around;
     color: black;
     width: 60%;
     margin: 140px auto 0;
+}
+
+.signIn__article {
+    text-align: center;
+}
+
+.signIn__header {
+    font-size: 1.2rem;
+    margin: 0 0 20px;
+    text-align: center;
 }
 
 .signIn-panel {
@@ -131,6 +338,11 @@ body {
     border-radius: 25px;
     box-shadow: 3px 3px 4px 2px rgba(21, 21, 21, 0.15);
     font-weight: 400;
+    text-align: center;
+}
+
+
+.signIn-panel__alert {
 }
 
 .signIn-panel__icon {
@@ -220,11 +432,11 @@ body {
 }
 
 .signOn__container {
-    display: flex;
+    display: none;
     justify-content: space-around;
-    margin: 140px auto 0;
-    width: 50%;
+    margin: 10px auto 0;
     color: black;
+    width: 20%;
     font-weight: 400;
     border: 1px solid rgba(52, 0, 104, 0.31);
     border-radius: 25px;
@@ -268,7 +480,7 @@ body {
 .login-panel {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin: 100px auto 0px;
+    margin: 50px auto 0px;
     padding: 20px;
     width: 50%;
     min-height: 400px;
@@ -323,7 +535,7 @@ body {
     margin: 80px auto 0;
     padding: 20px;
     height: 600px;
-    width: 50%;
+    width: 80vw;
     font-weight: 400;
     text-align: center;
     border: 1px solid rgba(52, 0, 104, 0.31);
@@ -367,7 +579,7 @@ body {
     margin: 80px auto 0;
     padding: 20px;
     height: 400px;
-    width: 20%;
+    width: 60vw;
     font-weight: 400;
     text-align: center;
     border: 1px solid rgba(52, 0, 104, 0.31);
@@ -376,7 +588,7 @@ body {
 }
 
 .transfer-panel__form {
-    margin:30px auto 0;
+    margin: 30px auto 0;
 }
 
 .transfer-panel__label {
@@ -400,7 +612,7 @@ body {
     margin: 80px auto 0;
     padding: 20px;
     height: 280px;
-    width: 30%;
+    width: 40vw;
     font-weight: 400;
     text-align: center;
     border: 1px solid rgba(52, 0, 104, 0.31);
@@ -419,145 +631,35 @@ body {
 
 .applicationCard-panel__nav {
     width: 40%;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .applicationCard-panel__link {
     text-decoration: none;
 }
 
-footer {
+.footer {
     display: flex;
     position: absolute;
     bottom: 0;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
     height: 40px;
 }
 
-@keyframes zoomIn {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale3d(.3, .3, .3);
-        transform: scale3d(.3, .3, .3);
-    }
-    50% {
-        opacity: 1;
-    }
+.footer__logo {
+    display: flex;
+    font-family: 'Righteous', cursive;
+    justify-content: center;
+    width: 20%;
+    font-size: 1.3rem;
+    letter-spacing: 5px;
 }
 
-@keyframes zoomInLeft {
-    0% {
-        opacity: 0;
-        -webkit-transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);
-        transform: scale3d(.1, .1, .1) translate3d(-1000px, 0, 0);
-        -webkit-animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-        animation-timing-function: cubic-bezier(0.550, 0.055, 0.675, 0.190);
-    }
-    25% {
-        opacity: 1;
-        -webkit-transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);
-        transform: scale3d(.475, .475, .475) translate3d(10px, 0, 0);
-        -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
-        animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
-    }
+.footer__information {
+    text-align: center;
 }
 
-@keyframes color-change-2x {
-    0% {
-        background: #7b5293;
-    }
-    100% {
-        background: rgb(110, 73, 132);
-    }
-}
-
-@media (max-width: 900px) {
-    header {
-        flex-direction: column;
-        height: 280px;
-    }
-
-    header .logo {
-        width: 200px;
-        margin-top: 25px;
-    }
-
-    header nav {
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    header nav ul {
-        margin: 0;
-        padding: 0;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    header nav ul li {
-        display: flex;
-        justify-content: center;
-        width: 200px;
-        margin: 5px auto;
-    }
-
-    header nav ul .nav__header {
-        display: flex;
-        width: 100%;
-        padding: 10px 0;
-    }
-
-    main {
-        margin: 25px 0px 0px;
-    }
-
-    main .home {
-        text-align: center;
-        font-size: 2.2vw;
-        font-weight: bold;
-        line-height: 30px;
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    main .home h1 {
-        font-size: 3vw;
-    }
-
-    main .home h2 {
-        font-size: 2.8vw;
-        margin: 2px;
-    }
-
-    main .home h3 {
-        font-size: 2.6vw;
-        margin: 0px;
-    }
-}
-
-@media (max-width: 600px) {
-    main .home {
-        text-align: center;
-        font-size: 5vw;
-        font-weight: bold;
-        line-height: 50px;
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    main .home h1 {
-        font-size: 7vw;
-    }
-
-    main .home h2 {
-        font-size: 6.8vw;
-        margin: 2px;
-    }
-
-    main .home h3 {
-        font-size: 6.6vw;
-        margin: 0px;
-    }
+.footer__link {
+    display: block;
 }

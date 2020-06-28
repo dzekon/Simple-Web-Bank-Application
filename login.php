@@ -16,15 +16,18 @@ if (!isset($_SESSION['user_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>LenBank</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.jpg"/>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-mobile.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 </head>
 <body>
 <section class="wrapper">
     <header class="header">
-        <div class="header__logo">To jest logo</div>
+        <div class="header__logo">LenBank</div>
         <nav class="header__nav">
             <ul class="header__list">
                 <li class="header__item header__item--mobile">Menu</li>
@@ -38,27 +41,168 @@ if (!isset($_SESSION['user_id'])) {
                     <button class="header__button" id="contact__button">Kontakt</button>
                 </li>
                 <li class="header__item">
-                    <button class="header__button" id="help__button">Pomoc</button>
-                </li>
-                <li class="header__item">
                     <button class="header__button header__button--primary" id="login__button">Panel użytkownika</button>
                 </li>
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="home" id="div_1">
-            home
+    <main class="main">
+        <section class="home" id="homeSection">
+            <section class="home-container">
+                <h1 class="home-container__header">LenBank</h1>
+                <h2 class="home-container__information">Nowoczesne rozwiązania bankowości online</h2>
+                <div class="home-benefits">
+                    <div class="home-benefits__item">
+                        <div class="home-benefits__icon">
+                            <img src="assets/images/useful.svg" width="130">
+                        </div>
+                        <h3 class="home-benefits__advantage">Prosta obsługa konta!</h3>
+                    </div>
+                    <div class="home-benefits__item">
+                        <div class="home-benefits__icon">
+                            <img src="assets/images/fast_transfer.svg" width="130">
+                        </div>
+                        <h3 class="home-benefits__advantage">Szybkie przelewy!</h3>
+                    </div>
+                    <div class="home-benefits__item">
+                        <div class="home-benefits__icon">
+                            <img src="assets/images/control.svg" width="150">
+                        </div>
+                        <h3 class="home-benefits__advantage">Mnóstwo możliwości</h3>
+                    </div>
+                    <div class="home-benefits__item">
+                        <div class="home-benefits__icon">
+                            <img src="assets/images/support.svg" width="130">
+                        </div>
+                        <h3 class="home-benefits__advantage">Support 24/7!</h3>
+                    </div>
+                </div>
+            </section>
         </section>
-        <section class="product" id="div_2">
+        <section class="product" id="productSection">
+            <section class="product-container">
+                <h1 class="product-header">Nasze produkty</h1>
+                <section class="product-account" id="productAccount">
+                    <div class="product-account__container">
+                        <section class="product-account__image">
+                            <img src="assets/images/control.svg" alt="account" width="340px">
+                        </section>
+                        <div class="product-account__describe">
+                            <h2 class="product-account__header">Konto bankowe</h2>
+                            Kontroluj przepływ swoich środków i zarządzaj nimi!<br>
+                            Stwórz konto już dziś i dołacz do naszych zadowolonych klientów!
+                        </div>
+                    </div>
+                </section>
+                <section class="product-card product--visa" id="productVisa">
+                    <section class="product-card__icon">
+                        <img src="assets/images/visa.svg" alt="visa" width="200px">
+                    </section>
+                    <section class="product-card__container">
+                        <div class="product-card__describe">
+                            <h2 class="product-card__header">VISA</h2>
+                            <span class="product-card__information">
+                                Karta debetowa VISA niesie ze sobą wiele korzyści takich jak:
+                                <ul class="product-card__list">
+                                    <li class="product-card__item">
+                                    Brak opłat za korzystanie z karty!
+                                    </li>
+                                    <li class="product-card__item">
+                                    Wypłacanie pieniedzy z kazdego bankomatu!
+                                    </li>
+                                    <li class="product-card__item">
+                                    Zabezpieczenia w postaci limitów dziennych!
+                                    </li>
+                                </ul>
+                        </div>
+                        </span>
+                    </section>
+                </section>
+                <section class="product-card product--mastercard" id="productMaster">
+                    <section class="product-card__container">
+                        <div class="product-card__describe">
+                            <h2 class="product-card__header">MasterCard</h2>
+                            <span class="product-card__information">
+                                Obawiasz się, że braknie Ci gotówki podczas zakupów?<br>
+                                    Skorzystaj z karty kredytowej MasterCard!
+                                <ul class="product-card__list">
+                                    <li class="product-card__item">
+                                    Brak opłat za korzystanie z karty!
+                                    </li>
+                                    <li class="product-card__item">
+                                    Wypłacanie pieniedzy z kazdego bankomatu!
+                                    </li>
+                                    <li class="product-card__item">
+                                    Zabezpieczenia w postaci limitów dziennych!
+                                    </li>
+                                </ul>
+                        </div>
+                        </span>
+                    </section>
+                    <section class="product-card__icon">
+                        <img src="assets/images/master.svg" alt="masterCard" width="200px">
+                    </section>
+                </section>
+                <nav class="product-nav">
+                    <ul class="product-nav__list">
+                        <li class="product-nav__item">
+                            <a class="btn" id="btn-nav__previous" href="#"><
+                            </a>
+                        </li>
+                        <li class="product-nav_item">
+                            <a class="btn" id="btn-nav__next" href="#">></a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
         </section>
-        <section class="contact" id="div_3">
-            contact
+        <section class="contact" id="contactSection">
+            <div class="contact-container">
+                <h1 class="contact-container__header">Kontakt</h1>
+                <div class="contact-container__methods">
+                    <div class="contact-container__place">
+                        <h2 class="contact-container__info">Siedziba firmy</h2>
+                        <address class="contact-address">
+                            <div class="contact-address__place">
+                                ul.Wiosny Ludów 12<br>
+                                80-900 Poznań
+                            </div>
+                        </address>
+                        <h2 class="contact-container__info">Godziny pracy</h2>
+                        <div class="contact-work">
+                            <div class="contact-work__day">Pon-Czw</div>
+                            <div class="contact-work__hours">8:00-16:00</div>
+                            <div class="contact-work__day">Pt-Sob</div>
+                            <div class="contact-work__hours">7:30-17:00</div>
+                            <div class="contact-work__day">Ndz</div>
+                            <div class="contact-work__hours">Nieczynne!</div>
+                        </div>
+                    </div>
+                    <div class="contact-container__contact">
+                        <h2 class="contact-container__info">Kontakt elektroniczny</h2>
+                        <div class="contact-ways__header">
+                            Telefon komórkowy
+                        </div>
+                        <div class="contact-ways__number">
+                            777-666-555
+                        </div>
+                        <div class="contact-ways__header">
+                            Telefon Stacjonarny
+                        </div>
+                        <div class="contact-ways__number">
+                            (0)54-237-611-555
+                        </div>
+                        <div class="contact-ways__header">
+                            Adres mailowy
+                        </div>
+                        <div class="contact-ways__number">
+                            kontakt@lenbank.pl
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section class="help" id="div_4">
-            help2
-        </section>
-        <section class="login" id="div_5" style="display: block">
+        <section class="login" id="loginSection" style="display: block">
             <?php
             if (isset($_GET['operation'])) {
                 switch ($_GET['operation']) {
@@ -93,8 +237,7 @@ if (!isset($_SESSION['user_id'])) {
                                         <tbody class="history-panel__table-body">
                                         <?php
                                         $id_log = 1;
-                                        foreach ($user->logSendMoney as $log) {
-                                            ?>
+                                        foreach ($user->logSendMoney as $log) { ?>
                                             <tr class="history-panel__table-row">
                                                 <td class="history-panel__table-data">
                                                     <?php
@@ -122,8 +265,7 @@ if (!isset($_SESSION['user_id'])) {
                                         </tbody>
                                     </table>
                                     <?php
-                                }
-                                ?>
+                                } ?>
                             </section>
                             <span class="history-panel__header">Historia przelewów odebranych</span>
                             <section class="history-panel__container">
@@ -192,19 +334,20 @@ if (!isset($_SESSION['user_id'])) {
                         </section>
                         <?php
                         break;
-                    case 'transferMoney': ?>
+                    case 'transferMoney':
+                        ?>
                         <section class="transfer-panel">
                         <h1 class="transfer-panel__header">
                             Przesyłanie środków z konta
                         </h1>
                         <?php
-                        if (!isset($_POST['surnameReceiver'])) { ?>
+                        if (!isset($_POST['surnameReceiver']) && !isset($_POST['lastnameReceiver']) && !isset($_POST['numberAccountReceiver']) && !isset($_POST['amountMoney'])) { ?>
                             <form class="transfer-panel__form" action="login.php?operation=transferMoney" method="POST">
                                 <label class="transfer-panel__label" for="surnameReceiver">Imię</label>
                                 <input class="transfer-panel__input" type="text" name="surnameReceiver" required>
                                 <label class="transfer-panel__label" for="lastnameReceiver">Nazwisko</label>
                                 <input class="transfer-panel__input" type="text" name="lastnameReceiver" required>
-                                <label class="transfer-panel__label" for="number_account">Numer konta</label>
+                                <label class="transfer-panel__label" for="numberAccountReceiver">Numer konta</label>
                                 <input class="transfer-panel__input" type="text" name="numberAccountReceiver" required>
                                 <label class="transfer-panel__label" for="amountMoney">Kwota</label>
                                 <input class="transfer-panel__input" type="number" name="amountMoney" required>
@@ -254,15 +397,15 @@ if (!isset($_SESSION['user_id'])) {
                         <h1 class="applicationCard-panel__header">Wniosek o nową kartę</h1>
                         <?php
                         if (!isset($_POST['cardType'])) {
-                            $countCard = ($user->cards) != null ? $countCard = sizeof($user->cards): $countCard = null;
+                            $countCard = ($user->cards) != null ? $countCard = sizeof($user->cards) : $countCard = null;
                             if ($countCard == 2) { ?>
-                                    <span class="applicationCard-panel__alert">Posiadasz już dwie karty!</span>
-                            <?php
+                                <span class="applicationCard-panel__alert">Posiadasz już dwie karty!</span>
+                                <?php
                             } else {
                                 $user->setApplicationCard();
                                 $application = $user->getApplicationCard();
-                                $countCard = sizeof($application);
-                                if ($application != null && sizeof($application) == 2) { ?>
+                                $countCard = ($user->cards) != null ? $countCard = sizeof($user->cards) : $countCard = null;
+                                if ($countCard != null && sizeof($application) == 2) { ?>
                                     <span class="applicationCard-panel__alert">Złożyłeś już dwa wnioski o karty</span>
                                     <nav class="applicationCard-panel__nav">
                                         <a class="applicationCard-panel__link" href="login.php">
@@ -350,7 +493,7 @@ if (!isset($_SESSION['user_id'])) {
             <section class="login-panel">
                 <section class="panel-operation">
                     <div class="panel-operation__icon">
-                        <img src="assets/images/12.svg" alt="account_pictuter" width="200">
+                        <img src="assets/images/useful.svg" alt="panel_account_picture" width="200">
                     </div>
                     <nav class="panel-operation__nav">
                         <a class="panel-operation__item" href="login.php?operation=showHistory">
@@ -451,12 +594,20 @@ if (!isset($_SESSION['user_id'])) {
                         </table>
                         <?php
                     }
-                    } ?>
+                    }
+                    ?>
                 </section>
             </section>
         </section>
     </main>
-    <footer>Tu jest stopka</footer>
-    <script type="text/javascript" src="main.js" charset="UTF-8"></script>
+    <footer class="footer">
+        <div class="footer__logo">LenBank</div>
+        <div class="footer__information">
+            <span class="footer__rights">Grafiki wykorzystane na stronie pochodzą z</span>
+            <a class="footer__link" href="https://pl.freepik.com/">Freepik.com</a>
+            <a class="footer__link" href="https://www.flaticon.com/">Flaticon.com</a>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/main.js" charset="UTF-8"></script>
 </body>
 </html>
