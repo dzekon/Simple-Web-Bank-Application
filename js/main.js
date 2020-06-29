@@ -2,7 +2,6 @@ var homeButton = document.getElementById('home__button');
 var productButton = document.getElementById('product__button');
 var contactButton = document.getElementById('contact__button');
 var loginButton = document.getElementById('login__button');
-// var registerButton = document.getElementById('register__button');
 var buttonRegister = document.getElementById('button__signOn');
 var buttonCancel = document.getElementById('button__cancel');
 
@@ -87,9 +86,6 @@ contactButton.addEventListener('click', function () {
 loginButton.addEventListener('click', function () {
     toogle(loginMain);
 });
-// registerButton.addEventListener('click', function () {
-//     toogle(loginMain);
-// });
 
 function toogle(element) {
     this.homeMain.style.display = "none";

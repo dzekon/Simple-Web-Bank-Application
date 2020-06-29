@@ -3,7 +3,7 @@ session_start();
 require_once('connection.php');
 
 if (isset($_POST['login']) && isset($_POST['pwd'])) {
-    $db = new Database('localhost', 'root', '', 'bank', '3306');
+    $db = new Database('login', 'user', 'password', 'db_name', 'port');
     $login = $_POST['login'];
     $password = $_POST['pwd'];
     $user = $db->single("SELECT id, login , password FROM user_bank WHERE login = '$login'");
@@ -38,7 +38,7 @@ if (isset($_POST['surname']) && isset($_POST['lastname']) && isset($_POST['pwdNe
     $town = $_POST['town'];
     $mail = $_POST['mail'];
     $numberPhone = $_POST['number_phone'];
-    $db = new Database('localhost', 'root', '', 'bank', '3306');
+    $db = new Database('login', 'user', 'password', 'db_name', 'port');
     $db->execute("INSERT INTO user_bank (login, password, surname, lastname, pesel, street, house_number, zip_code, town, country, mail, telephone_number)
 VALUES ('$mail', '$password', '$surname', '$lastname', '$pesel', '$place', '$numberHouse', '$zip_code', '$town', 'Polska', '$mail', '$numberPhone')");
     header('location:index.php');

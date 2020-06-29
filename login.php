@@ -1,8 +1,9 @@
 <?php
+ob_start();
 session_start();
 require_once('user.php');
 require_once('connection.php');
-$db = new Database('localhost', 'root', '', 'bank', '3306');
+$db = new Database('login', 'user', 'password', 'db_name', 'port');
 
 if (!isset($_SESSION['user_id'])) {
     header('location:index.php');
